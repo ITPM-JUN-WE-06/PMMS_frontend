@@ -1,3 +1,4 @@
+"use client"
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -14,6 +15,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import GroupIcon from '@mui/icons-material/Group';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const drawerWidth = 240;
 
@@ -21,16 +23,7 @@ export default function SideBar() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-      >
-        {/* <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Permanent drawer
-          </Typography>
-        </Toolbar> */}
-      </AppBar>
+      
       <Drawer
         sx={{
           width: drawerWidth,
@@ -38,6 +31,7 @@ export default function SideBar() {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
+            zIndex: -1,
           },
         }}
         variant="permanent"
@@ -46,11 +40,14 @@ export default function SideBar() {
         <Toolbar />
         <Divider />
         <List>
-          {['fsdgfgsdfg', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Dashboard', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                    {index % 2 === 0 ? <GroupIcon /> : <MailIcon />}
+                  {index === 0 ? <DashboardIcon /> : null}
+                  {index === 1 ? <DashboardIcon /> : null}
+                  {index === 2 ? <DashboardIcon /> : null}
+                  {index === 3 ? <DashboardIcon /> : null}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -63,7 +60,9 @@ export default function SideBar() {
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index === 0 ? <DashboardIcon /> : null}
+                {index === 1 ? <DashboardIcon /> : null}
+                {index === 2 ? <DashboardIcon /> : null}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
