@@ -1,80 +1,137 @@
 "use client"
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import GroupIcon from '@mui/icons-material/Group';
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import classNames from "classnames";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useState, useMemo } from "react";
+import {
+  ArticleIcon,
+  CollapsIcon,
+  HomeIcon,
+  LogoIcon,
+  LogoutIcon,
+  UsersIcon,
+  VideosIcon,
+} from "./icons";
 
-const drawerWidth = 240;
 
-export default function SideBar() {
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-            zIndex: -1,
-          },
-        }}
-        variant="permanent"
-        anchor="left"
-      >
-        <Toolbar />
-        <Divider />
-        <List>
-          {['Dashboard', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index === 0 ? <DashboardIcon /> : null}
-                  {index === 1 ? <DashboardIcon /> : null}
-                  {index === 2 ? <DashboardIcon /> : null}
-                  {index === 3 ? <DashboardIcon /> : null}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                {index === 0 ? <DashboardIcon /> : null}
-                {index === 1 ? <DashboardIcon /> : null}
-                {index === 2 ? <DashboardIcon /> : null}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-      > 
-      </Box>
-    </Box>
+const menuItems = [
+  { id: 1, label: "Dashboard", icon: HomeIcon, link: "/dashboard" },
+  { id: 2, label: "Assessment", icon: ArticleIcon, link: "/posts" },
+  { id: 3, label: "Assessment", icon: ArticleIcon, link: "/posts" },
+  { id: 4, label: "Project Groups", icon: UsersIcon, link: "/users" },
+  { id: 5, label: "Manage Users", icon: UsersIcon, link: "/users" },
+  { id: 6, label: "Manage Tutorials", icon: VideosIcon, link: "/tutorials" },
+  
+];
+
+const Sidebar = () => {
+  const [toggleCollapse, setToggleCollapse] = useState(false);
+  const [isCollapsible, setIsCollapsible] = useState(false);
+
+  const router = useRouter();
+
+  const activeMenu = useMemo(
+    () => menuItems.find((menu) => menu.link === router.pathname),
+    [router.pathname]
   );
-}
+
+  const wrapperClasses = classNames(
+    "h-screen px-4 pt-8 pb-4 bg-light flex justify-between flex-col",
+    {
+      ["w-80"]: !toggleCollapse,
+      ["w-20"]: toggleCollapse,
+    }
+  );
+
+  const collapseIconClasses = classNames(
+    "p-4 rounded bg-light-lighter absolute right-0",
+    {
+      "rotate-180": toggleCollapse,
+    }
+  );
+
+  const getNavItemClasses = (menu) => {
+    return classNames(
+      "flex items-center cursor-pointer hover:bg-light-lighter rounded w-full overflow-hidden whitespace-nowrap",
+      {
+        ["bg-light-lighter"]: activeMenu && activeMenu.id === menu.id,
+      }
+    );
+  };
+
+  const onMouseOver = () => {
+    setIsCollapsible(!isCollapsible);
+  };
+
+  const handleSidebarToggle = () => {
+    setToggleCollapse(!toggleCollapse);
+  };
+
+  return (
+    <div
+      className={wrapperClasses}
+      onMouseEnter={onMouseOver}
+      onMouseLeave={onMouseOver}
+      style={{ transition: "width 300ms cubic-bezier(0.2, 0, 0, 1) 0s" }}
+    >
+      <div className="flex flex-col">
+        <div className="flex items-center justify-between relative">
+          <div className="flex items-center pl-1 gap-4">
+            <LogoIcon />
+            <span
+              className={classNames("mt-2 text-lg font-bold text-text-primary", {
+                hidden: toggleCollapse,
+              })}
+            >
+              Module Minder
+            </span>
+          </div>
+          {isCollapsible && (
+            <button
+              className={collapseIconClasses}
+              onClick={handleSidebarToggle}
+            >
+              <CollapsIcon />
+            </button>
+          )}
+        </div>
+
+        <div className="flex flex-col items-start mt-24">
+        {menuItems.map(({ icon: Icon, ...menu }) => {
+  const classes = getNavItemClasses(menu);
+  return (
+    <div key={menu.id} className={classes}>
+      <Link href={menu.link} className="flex py-4 px-3 items-center w-full h-full">
+        <div style={{ width: "2.5rem" }}>
+          <Icon />
+        </div>
+        {!toggleCollapse && (
+          <span className={classNames("text-md font-medium text-text-light")}>
+            {menu.label}
+          </span>
+        )}
+      </Link>
+    </div>
+  );
+})}
+        </div>
+      </div>
+      <Link href="/dashboard/settings">
+      <div className={`${getNavItemClasses({})} px-3 py-4 `} >
+     
+        <div style={{ width: "2.5rem" }}>
+          <LogoutIcon />
+        </div>
+        {!toggleCollapse && (
+          <span className={classNames("text-md font-medium text-text-light")}>
+            Settings
+          </span>
+        )}
+      </div>
+      </Link>
+      
+    </div>
+  );
+};
+
+export default Sidebar;
