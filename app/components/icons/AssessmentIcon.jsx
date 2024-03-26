@@ -1,7 +1,7 @@
 import * as React from "react";
 import { MdOutlineAssessment } from "react-icons/md";
 
-function ArticleIcon({ fill = "#6C7281", ...rest }) {
+function AssessmentIcon({ fill = "#6C7281", ...rest }) {
   return (
     <div
   style={{
@@ -19,4 +19,4 @@ function ArticleIcon({ fill = "#6C7281", ...rest }) {
   );
 }
 
-export default ArticleIcon;
+export default AssessmentIcon;

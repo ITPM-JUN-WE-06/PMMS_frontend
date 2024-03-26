@@ -3,24 +3,36 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState, useMemo } from "react";
-import {
-  ArticleIcon,
-  CollapsIcon,
-  HomeIcon,
-  LogoIcon,
-  LogoutIcon,
-  UsersIcon,
-  VideosIcon,
-} from "./icons";
+import AssessmentIcon from "./icons/AssessmentIcon";
+import DashboardIcon from "./icons/DashboardIcon";
+import UsersIcon from "./icons/UsersIcon";
+import Logo from "./icons/Logo";
+import PaperIcon from "./icons/ResearchIcon";
+import MarksheetIcon from "./icons/MarksheetIcon";
+import SupportIcon from "./icons/SupportIcon";
+import SettingsIcon from "./icons/SettingsIcon";
+import CollapsIcon from "./icons/CollapsIcon"
+// import {
+//   AssessmentIcon,
+//   DashboardIcon,
+//   LogoIcon,
+//   LogoutIcon,
+//   UsersIcon,
+//   ResearchIcon,
+//   SupportIcon,
+  
+// } from "./icons";
 
 
 const menuItems = [
-  { id: 1, label: "Dashboard", icon: HomeIcon, link: "/dashboard" },
-  { id: 2, label: "Assessment", icon: ArticleIcon, link: "/posts" },
-  { id: 3, label: "Assessment", icon: ArticleIcon, link: "/posts" },
-  { id: 4, label: "Project Groups", icon: UsersIcon, link: "/users" },
-  { id: 5, label: "Manage Users", icon: UsersIcon, link: "/users" },
-  { id: 6, label: "Manage Tutorials", icon: VideosIcon, link: "/tutorials" },
+  { id: 1, label: "Dashboard", icon: DashboardIcon, link: "/dashboard" },
+  { id: 2, label: "User Management", icon: UsersIcon, link: "/user" },
+  { id: 3, label: "Project Management", icon: AssessmentIcon, link: "/project" },
+  { id: 4, label: "Assessment Management", icon: AssessmentIcon, link: "/assessment" },
+  { id: 5, label: "Research Paper Publication", icon: PaperIcon, link: "/research" },
+  { id: 6, label: "Mark Sheet Generation", icon: MarksheetIcon, link: "/marks" },
+  { id: 7, label: "Help & Support", icon: SupportIcon, link: "/support" },
+  
   
 ];
 
@@ -77,7 +89,7 @@ const Sidebar = () => {
       <div className="flex flex-col">
         <div className="flex items-center justify-between relative">
           <div className="flex items-center pl-1 gap-4">
-            <LogoIcon />
+            <Logo />
             <span
               className={classNames("mt-2 text-lg font-bold text-text-primary", {
                 hidden: toggleCollapse,
@@ -96,7 +108,7 @@ const Sidebar = () => {
           )}
         </div>
 
-        <div className="flex flex-col items-start mt-24">
+        <div className="flex flex-col items-start mt-12">
         {menuItems.map(({ icon: Icon, ...menu }) => {
   const classes = getNavItemClasses(menu);
   return (
@@ -120,7 +132,7 @@ const Sidebar = () => {
       <div className={`${getNavItemClasses({})} px-3 py-4 `} >
      
         <div style={{ width: "2.5rem" }}>
-          <LogoutIcon />
+          <SettingsIcon />
         </div>
         {!toggleCollapse && (
           <span className={classNames("text-md font-medium text-text-light")}>
