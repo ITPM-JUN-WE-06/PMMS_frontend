@@ -1,15 +1,12 @@
 import React from 'react'
 import Layout from '../components/layout'
 
-const dashboard = () => {
+const page = () => {
   return (
     <Layout>
-        <div>
-            <h1>hello</h1>
-        </div>
+      <h1>hello</h1>
     </Layout>
-    
   )
 }
 
-export default dashboard
+export default page
