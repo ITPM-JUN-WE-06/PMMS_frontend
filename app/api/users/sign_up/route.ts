@@ -11,6 +11,23 @@ export async function POST(request:NextRequest) {
         const reqBody = await request.json()
         const {fullname,usertype,email,password,year_sem} = reqBody
         
+        let yearSemester:string|null;
+
+        // Check if the user is staff
+        if (usertype === "staff") {
+            yearSemester = null;
+        } else {
+            const yearSemesterMap:Record<string,string> = {
+                option1: "Year 3 Sem 1",
+                option2: "Year 3 Sem 2",
+        };
+  
+        // Get the real name for the year_sem value
+        yearSemester = yearSemesterMap[year_sem];
+      }
+
+
+
         console.log(reqBody);
 
         //check if user already exists
@@ -29,7 +46,7 @@ export async function POST(request:NextRequest) {
             usertype,
             email,
             password:hashedPassword,
-            year_sem,
+            year_sem:yearSemester,
         })
 
         const savedUser = await newUser.save()

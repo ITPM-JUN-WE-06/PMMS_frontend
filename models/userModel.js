@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema({
     },
     year_sem: {
         type: String,
-        required: true,
     },
     isVerfied:{
         type:Boolean,
