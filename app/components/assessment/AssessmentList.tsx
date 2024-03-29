@@ -1,6 +1,7 @@
 import { HiPencilAlt } from "react-icons/hi";
 import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
+import PencilIcon from "../icons/EditPencilIcon";
 
 const getAssessment = async () => {
   try {
@@ -30,17 +31,17 @@ export default async function AssessmentList() {
       {assess.map((a: any) => (
         <div
           key={a._id}
-          className=" bg-white p-4 border my-3 flex justify-between gap-5 items-start shadow-md rounded-lg"
+          className=" bg-white p-4 border my-3 flex justify-between gap-5 items-start  rounded-lg"
         >
           <div>
             <h2 className="text-2xl text-primary font-bold  ">{a.moduleName}</h2>
-            <div className="text-sm  text-gray-700">{a.assessmentDescription}</div>
+            <div className="text-sm  text-text-light">{a.assessmentDescription}</div>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-6">
             <RemoveBtn id={a._id} />
             <Link href={`/editTopic/${a._id}`}>
-              <HiPencilAlt size={24} />
+              <PencilIcon />
             </Link>
           </div>
         </div>
