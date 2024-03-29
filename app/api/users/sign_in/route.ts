@@ -4,23 +4,23 @@ import { NextRequest,NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-connect()
+connect();
 
 export async function POST(request:NextRequest) {
     try {
-        const reqBody = await request.json()
+        const reqBody = await request.json();
         const {email,password} = reqBody;
         console.log(reqBody);
 
         //check if user exists
-        const user = await User.findOne({email})
+        const user = await User.findOne({email});
         if(!user){
             return NextResponse.json({error:"User does not exist"},{status:400})
         }
         console.log("user exists");
 
         //check if password is correct
-        const validPassword = await bcryptjs.compare(password,user.password)
+        const validPassword = await bcryptjs.compare(password,user.password);
         if(!validPassword){
             return NextResponse.json({error:"Invalid password"},{status:400})
         }
@@ -33,16 +33,18 @@ export async function POST(request:NextRequest) {
         }
 
         //create token
-        const token = await jwt.sign(tokenData, process.env.ITPM_MM!,{expiresIn:"1d"})
+        const token =jwt.sign(tokenData, process.env.ITPM_MM!,{expiresIn:"1d"});
 
         const response = NextResponse.json({
             message:"Sign-in successfully",
             success:true,
-        })
+        });
 
         response.cookies.set("token",token,{
-            httpOnly:true
-        })
+            httpOnly:true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict" 
+        });
         return response;
 
     } catch (error:any) {

@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import React from "react";
 import {useRouter} from "next/navigation";
-import axios, {Axios} from "axios";
+import React,{useState} from "react";
+import axios from "axios";
 import 'tailwindcss/tailwind.css';
 import Image from "next/image";
 import background from "./bg.jpg"
@@ -10,13 +10,15 @@ import toast from "react-hot-toast";
 
 export default function SignIn(){
     const router = useRouter();  
-    const [user,setUser] = React.useState({
+    const [user,setUser] = useState({
         email:"",
         password:"",
     })
+    const [isLoading,setIsLoading]=useState(false);
 
     const onSignin = async () => {
       try {
+        setIsLoading(true)
         const response = await axios.post("/api/users/sign_in",user);
         console.log("Sign-in success",response.data);
         toast.success("Sign-in success");
@@ -24,9 +26,12 @@ export default function SignIn(){
     } catch (error:any) {
         console.log("Sign-in failed",error.message);
         //toast.error(error.message);
+    }finally{
+      setIsLoading(false);
     }
 
-    }
+    };
+    const isFormValid = user.email && user.password;
     
 
 
@@ -61,7 +66,9 @@ export default function SignIn(){
           onChange={(e) => setUser({...user,password: e.target.value})}
         />
        
-        <button onClick={onSignin} className=" px-5 py-2 bg-blue-500 text-white text-xl rounded-lg cursor-pointer hover:bg-blue-700 text-center font-bold" type="submit">Sign In</button>
+        <button onClick={onSignin} className=" px-5 py-2 bg-blue-500 text-white text-xl rounded-lg cursor-pointer hover:bg-blue-700 text-center font-bold" type="submit" disabled={!isFormValid || isLoading}>
+          {isLoading ? "Signing In...":"Sign In"}
+        </button>
         </h2>
         <h6 className="text-blue-500"><center>Don't have an Account?<u><Link href="/sign_up">Sign Up</Link></u></center></h6>
         </div>
