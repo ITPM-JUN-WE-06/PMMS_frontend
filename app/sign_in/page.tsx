@@ -8,6 +8,8 @@ import Image from "next/image";
 import background from "./bg.jpg"
 import toast from "react-hot-toast";
 
+
+
 export default function SignIn(){
     const router = useRouter();  
     const [user,setUser] = useState({
@@ -44,7 +46,8 @@ export default function SignIn(){
           </div>
           <div className="flex justify-center items-center h-screen ">
           <div className="max-w-400 mx-auto my-auto p-20 border border-gray-300 rounded-lg bg-f9f9f9 bg-blue-100 shadow-md">
-            <h1 className="text-center mb-5 text-blue-500 font-bold text-3xl">Sign In</h1>
+            <h1 className="text-center mb-5 text-blue-700 font-bold text-4xl">Module Minder</h1>
+            <h1 className="text-center mb-5 text-blue-500 font-bold text-2xl">Sign In</h1>
           
         <h2 className="flex flex-col">
         
