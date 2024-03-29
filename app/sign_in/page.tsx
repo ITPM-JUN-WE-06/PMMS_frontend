@@ -5,7 +5,7 @@ import {useRouter} from "next/navigation";
 import {Axios} from "axios";
 import 'tailwindcss/tailwind.css';
 import Image from "next/image";
-import background from "./bg.jpg"
+import background from "./bg.png"
 
 export default function SignIn(){
     const [user,setUser] = React.useState({

@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
 import Button from "../components/button";
-import TotalUserCard from "./totalusercard";
+import TotalUserCard from "../components/dashboard/totalusercard";
 
 const page = () => {
   return (
