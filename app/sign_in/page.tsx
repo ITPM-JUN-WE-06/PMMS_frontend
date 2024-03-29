@@ -2,18 +2,29 @@
 import Link from "next/link";
 import React from "react";
 import {useRouter} from "next/navigation";
-import {Axios} from "axios";
+import axios, {Axios} from "axios";
 import 'tailwindcss/tailwind.css';
 import Image from "next/image";
 import background from "./bg.jpg"
+import toast from "react-hot-toast";
 
 export default function SignIn(){
+    const router = useRouter();  
     const [user,setUser] = React.useState({
         email:"",
         password:"",
     })
 
     const onSignin = async () => {
+      try {
+        const response = await axios.post("/api/users/sign_in",user);
+        console.log("Sign-in success",response.data);
+        toast.success("Sign-in success");
+        router.push("/profile");
+    } catch (error:any) {
+        console.log("Sign-in failed",error.message);
+        //toast.error(error.message);
+    }
 
     }
     
