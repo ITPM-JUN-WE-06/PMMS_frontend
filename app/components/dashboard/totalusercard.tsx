@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../components/button";
+import Button from "../button";
 
 const TotalUserCard = ({
   title,
@@ -9,11 +9,11 @@ const TotalUserCard = ({
   details: string;
 }) => {
   return (
-    <div className="card w-100  ps-4 bg-base-100 shadow-xl  text-text-light rounded-lg">
+    <div className="card w-100 bg-white shadow- rounded-lg ps-4 bg-base-100  text-text-light ">
       <figure className="px-10 pt-10"></figure>
       <div className="card-body items-center text-center  ">
         <h2 className="card-title font-bold">{title}</h2>
-        <p>{details}</p>
+        <p>{details}</p>xl
         <div className="card-actions"></div>
       </div>
     </div>

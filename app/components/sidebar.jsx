@@ -28,7 +28,7 @@ const menuItems = [
   { id: 1, label: "Dashboard", icon: DashboardIcon, link: "/dashboard" },
   { id: 2, label: "User Management", icon: UsersIcon, link: "/user" },
   { id: 3, label: "Project Management", icon: AssessmentIcon, link: "/project" },
-  { id: 4, label: "Assessment Management", icon: AssessmentIcon, link: "/assessment" },
+  { id: 4, label: "Assessment Management", icon: AssessmentIcon, link: "/assessments" },
   { id: 5, label: "Research Paper Publication", icon: PaperIcon, link: "/research" },
   { id: 6, label: "Mark Sheet Generation", icon: MarksheetIcon, link: "/marks" },
   { id: 7, label: "Help & Support", icon: SupportIcon, link: "/support" },
@@ -64,7 +64,7 @@ const Sidebar = () => {
 
   const getNavItemClasses = (menu) => {
     return classNames(
-      "flex items-center cursor-pointer hover:bg-light-lighter rounded w-full overflow-hidden whitespace-nowrap",
+      "bg-white flex items-center cursor-pointer hover:bg-light-lighter rounded w-full overflow-hidden whitespace-nowrap",
       {
         ["bg-light-lighter"]: activeMenu && activeMenu.id === menu.id,
       }
