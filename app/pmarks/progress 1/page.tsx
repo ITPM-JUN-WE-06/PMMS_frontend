@@ -9,7 +9,7 @@ function page() {
         <div className=" bg-white rounded-xl pb-7  align-justify">
         
         <div className="pt-5 pl-5">
-            <div className="text-blue-700 font-extrabold text-center text-[22px]">Enter Proposal Presentation Marks</div>
+            <div className="text-blue-700 font-extrabold text-center text-[22px]">Enter Progress-1 Presentation Marks</div>
         </div>   
          <div className=" mt-4">  
               <label className=" ml-10 mr-4 text-blue-600 font-bold">Group ID</label>
