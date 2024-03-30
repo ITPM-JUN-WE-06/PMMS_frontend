@@ -1,5 +1,6 @@
+"use client"
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/Layouts/DefaultLayout";
 import TotalCard from "../components/dashboard/totalCards";
 import CardDataStats from "../components/dashboard/totalCards";
 import { FaUserGraduate } from "react-icons/fa";
@@ -50,6 +51,7 @@ const page = () => {
         </TotalCard>
         
       </div>
+      
     </Layout>
   );
 };
