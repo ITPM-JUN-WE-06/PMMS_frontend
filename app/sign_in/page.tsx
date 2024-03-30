@@ -5,9 +5,10 @@ import React,{useState} from "react";
 import axios from "axios";
 import 'tailwindcss/tailwind.css';
 import Image from "next/image";
+
 import background from "./bg.jpg"
 import toast from "react-hot-toast";
-
+import background1 from "./bg.png"
 
 
 export default function SignIn(){
