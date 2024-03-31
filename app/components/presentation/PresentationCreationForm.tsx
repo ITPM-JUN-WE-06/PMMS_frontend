@@ -10,7 +10,7 @@ const PresentationCreationForm = () => {
           <div className="py-2 grid grid-cols-4 gap-4">
             <div>
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block  text-text-light text-sm font-bold mb-2"
                 htmlFor="projectModule"
               >
                 Project Module
@@ -25,7 +25,7 @@ const PresentationCreationForm = () => {
 
             <div>
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block  text-text-light text-sm font-bold mb-2"
                 htmlFor="assessment"
               >
                 Assessment
@@ -40,7 +40,7 @@ const PresentationCreationForm = () => {
 
             <div>
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block  text-text-light text-sm font-bold mb-2"
                 htmlFor="presentationDate"
               >
                 Presentation Date
@@ -55,7 +55,7 @@ const PresentationCreationForm = () => {
 
             <div>
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block  text-text-light text-sm font-bold mb-2"
                 htmlFor="presentationVenue"
               >
                 Presentation Venue
@@ -70,7 +70,7 @@ const PresentationCreationForm = () => {
 
             <div>
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block text-text-light text-sm font-bold mb-2"
                 htmlFor="presentationTime"
               >
                 Presentation Time
@@ -85,7 +85,7 @@ const PresentationCreationForm = () => {
 
             <div>
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block text-text-light text-sm font-bold mb-2"
                 htmlFor="groupNumber"
               >
                 Group Number
@@ -100,6 +100,12 @@ const PresentationCreationForm = () => {
           </div>
 
           <div>
+          <label
+                className="block text-text-light text-sm font-bold mb-2"
+                htmlFor="presentationTime"
+              >
+                Presentation Panel
+              </label>
             <PannelDropdown />
             <div className="flex items-center justify-end gap-3">
             <Button name="create" />

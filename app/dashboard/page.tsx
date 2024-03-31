@@ -35,7 +35,7 @@ const page = () => {
             }}
           />
         </TotalCard>
-        <TotalCard title="Total Groups" total="15">
+        <TotalCard title="Total Projects" total="15">
           <TiGroup
             style={{
               width: "2rem",
@@ -44,7 +44,7 @@ const page = () => {
             }}
           />
         </TotalCard>
-        <TotalCard title="Total Groups" total="15">
+        {/* <TotalCard title="Total " total="15">
           <TiGroup
             style={{
               width: "2rem",
@@ -52,7 +52,7 @@ const page = () => {
               color: "#3B81F6",
             }}
           />
-        </TotalCard>
+        </TotalCard> */}
         
       </div>
 
