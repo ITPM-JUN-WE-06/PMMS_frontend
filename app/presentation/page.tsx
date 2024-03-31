@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/Layouts/DefaultLayout'
 import PresentationCreationForm from '../components/presentation/PresentationCreationForm'
 
 const page = () => {

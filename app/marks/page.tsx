@@ -1,12 +1,12 @@
-import React from 'react'
-import Layout from '../components/layout'
+import React from "react";
+import Layout from "../components/Layouts/DefaultLayout";
 
 const page = () => {
   return (
     <Layout>
-      <h1>hello</h1>
+      <h1 className='text-text-light'>marks page</h1>
     </Layout>
-  )
-}
+  );
+};
 
-export default page
+export default page;
