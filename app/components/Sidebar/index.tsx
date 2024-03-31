@@ -104,12 +104,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <Link href="/">
-          <Logo/>
+          
           <span
+          
               className={classNames("mt-2 text-lg font-bold text-text-primary", {
                 hidden: toggleCollapse,
               })}
-            >
+            ><Logo />
               Module Minder
             </span>
         </Link>
@@ -248,7 +249,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/assessments"
-                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-bold text-text-light text-bodydark2 duration-300 ease-in-out  hover:text-primary ${
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-text-light text-bodydark2 duration-300 ease-in-out  hover:text-primary ${
                                 pathname === "/forms/form-elements" &&
                                 "text-white"
                               }`}
@@ -259,7 +260,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <li>
                             <Link
                               href="/forms/form-layout"
-                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-bold text-text-light text-bodydark2 duration-300 ease-in-out  hover:text-primary ${
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-text-light text-bodydark2 duration-300 ease-in-out  hover:text-primary ${
                                 pathname === "/forms/form-layout" &&
                                 "text-white"
                               } `}
