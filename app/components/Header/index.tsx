@@ -4,6 +4,8 @@ import DropdownMessage from "./DropdownMessage";
 import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
 import Image from "next/image";
+import profileImg from "../../assets/Profile picture.png"
+
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;

@@ -8,6 +8,7 @@ const page = () => {
   return (
     <Layout>
       <div className="container mx-auto">
+      
         <div className="flex justify-end">
           <Link href="/assessments/createNewAssessment">
             <Button name="Create New Assessment" />
