@@ -6,7 +6,7 @@ function Logo({ fill = "#3B81F6", ...rest }) {
     <div>
       <LiaSchoolSolid
         style={{
-          width: 60,
+          width: 50,
           height: 50,
           color: "#036EFF",
         }}
