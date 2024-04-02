@@ -100,19 +100,17 @@ const PresentationCreationForm = () => {
           </div>
 
           <div>
-          <label
-                className="block text-text-light text-sm font-bold mb-2"
-                htmlFor="presentationTime"
-              >
-                Presentation Panel
-              </label>
+            <label
+              className="block text-text-light text-sm font-bold mb-2"
+              htmlFor="presentationTime"
+            >
+              Presentation Panel
+            </label>
             <PannelDropdown />
             <div className="flex items-center justify-end gap-3">
-            <Button name="create" />
-            <Button name="create" />
+              <Button name="create" />
+            </div>
           </div>
-          </div>
-          
         </div>
       </form>
     </div>
