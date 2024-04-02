@@ -178,7 +178,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   User Management
                 </Link>
                 <Link
-                  href="/calendar"
+                  href="/project"
                   className={`group relative flex items-center font-bold text-text-light gap-2.5 rounded-sm px-4 py-2  text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes("calendar") &&
                     "bg-graydark dark:bg-meta-4"
