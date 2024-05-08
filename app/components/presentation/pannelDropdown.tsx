@@ -3,7 +3,7 @@
 "use strict"; // Use strict mode
 import React, { useState } from 'react'; // Import React
 // Corrected component name from 'PannelDropdown' to 'PanelDropdown'
-const PanelDropdown = () => {
+const PanelDropdown = (title: string) => {
   const [isOpen, setIsOpen] = useState(false); // useState hook
 
   const toggleDropdown = () => {
@@ -12,7 +12,7 @@ const PanelDropdown = () => {
 
   return (
     <div>
-      <label id="listbox-label" className="block text-sm font-medium leading-6 text-gray-900">Select Pannel Member 1</label>
+      <label id="listbox-label" className="block text-sm font-medium leading-6 text-gray-900">{title}</label>
       <div className="relative mt-2">
         <button
           type="button"

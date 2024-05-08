@@ -107,12 +107,15 @@ const PresentationCreationForm = () => {
             >
               Presentation Panel
             </label>
-            <div className="py-2 grid grid-cols-4 gap-4">
-            <PannelDropdown />
-            <div className="flex items-center justify-end gap-3">
+              <div className="py-2 grid grid-cols-4 gap-4">
+             
+              {/* <PannelDropdown />
+              <PannelDropdown />
+               */}
+             </div>
+          <div className="flex items-center justify-end gap-3">
               <Button name="create" />
             </div>
-          </div>
           </div>
         </div>
       </form>

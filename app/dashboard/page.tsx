@@ -9,6 +9,15 @@ import ChartOne from "../components/Charts/ChartOne";
 import ChartTwo from "../components/Charts/ChartTwo";
 import ChartThree from "../components/Charts/ChartThree";
 
+const totalUsers=async()=>{
+  try{
+    
+
+  }
+  catch(err){
+    console.log(err);
+  }
+}
 
 const page = () => {
   return (
