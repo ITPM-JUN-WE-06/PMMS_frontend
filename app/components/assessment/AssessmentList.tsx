@@ -31,16 +31,19 @@ export default async function AssessmentList() {
       {assess.map((a: any) => (
         <div
           key={a._id}
-          className=" bg-white p-4 border my-3 flex justify-between gap-5 items-start  rounded-lg"
+          className=" bg-white p-4 border my-3 flex justify-between gap-5 items-start rounded-lg shadow-md"
         >
           <div>
             <h2 className="text-2xl text-primary font-bold  ">{a.moduleName}</h2>
             <div className="text-sm  text-text-light">{a.assessmentDescription}</div>
+            <div className="text-sm  text-text-light">{a.assessmentType}</div>
+            <div className="text-sm  text-text-light">{a.assessmentName}</div>
           </div>
 
           <div className="flex gap-6">
             <RemoveBtn id={a._id} />
-            <Link href={`/editTopic/${a._id}`}>
+            {/* <Link href={`/editTopic/${a._id}`}> */}
+            <Link href={`/assessments/UpdateAssessment/${a._id}`}>
               <PencilIcon />
             </Link>
           </div>
