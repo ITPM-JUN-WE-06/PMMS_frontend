@@ -8,11 +8,13 @@ import { TiGroup } from "react-icons/ti";
 import ChartOne from "../components/Charts/ChartOne";
 import ChartTwo from "../components/Charts/ChartTwo";
 import ChartThree from "../components/Charts/ChartThree";
+import User from "@/models/users/userModel";
+import connectMongoDB from "../../libs/connectMongoDB"
 
 const totalUsers=async()=>{
-  try{
+  try{  
+    await connectMongoDB();
     
-
   }
   catch(err){
     console.log(err);

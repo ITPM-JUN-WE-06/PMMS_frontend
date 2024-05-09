@@ -1,9 +1,11 @@
+"useclient";
 import { HiPencilAlt } from "react-icons/hi";
 import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import PencilIcon from "../icons/EditPencilIcon";
 
 const getAssessment = async () => {
+  console.log("fetcs");
   try {
     const res = await fetch("http://localhost:3000/api/assessments", {
       cache: "no-store",
@@ -21,7 +23,10 @@ export default async function AssessmentList() {
   let assess: any[] = [];
   try {
     const data = await getAssessment();
-    assess = data.assessments || [];
+    if (data && data.assessments){
+      assess = data.assessments;
+    
+    }
   } catch (err) {
     console.log("error loading assessment", err);
   }
@@ -42,8 +47,8 @@ export default async function AssessmentList() {
 
           <div className="flex gap-6">
             <RemoveBtn id={a._id} />
-            {/* <Link href={`/editTopic/${a._id}`}> */}
-            <Link href={`/assessments/UpdateAssessment/${a._id}`}>
+            {/* <Link href={`/UpdateAssessment/${a._id}`}> */}
+            <Link href={`assessments/UpdateAssessment/${a._id}`}>
               <PencilIcon />
             </Link>
           </div>
