@@ -48,7 +48,13 @@ export default async function AssessmentList() {
           <div className="flex gap-6">
             <RemoveBtn id={a._id} />
             {/* <Link href={`/UpdateAssessment/${a._id}`}> */}
-            <Link href={`assessments/UpdateAssessment/${a._id}`}>
+            {/* <Link href={`assessments/UpdateAssessment/`}> */}
+            <Link href={{
+              pathname: '/assessments/UpdateAssessment',
+              query: { id: a._id,
+               },
+
+            }}>
               <PencilIcon />
             </Link>
           </div>
