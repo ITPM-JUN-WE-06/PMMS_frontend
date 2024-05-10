@@ -31,17 +31,17 @@ function page() {
                     </center>
                 </div> 
                             <div className=" mx-8 my-2">
-                                <label className=" mr-6">Component 1</label>
+                                <label className=" mr-6">Content</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProConM" /> <br />
                             </div>
                                 
                             <div className=" mx-8 my-2">
-                                <label className=" mr-[21px]">Component 2</label>
+                                <label className=" mr-[21px]">Uniqueness</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProPrM" /> <br />
                             </div>
                                 
                             <div className="mx-8 my-2">
-                                <label className="mr-[20px] ">Component 3</label>
+                                <label className="mr-[20px] ">Structure</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProTmM" /> <br />
                             </div>
 
@@ -68,17 +68,17 @@ function page() {
                     </center>
                 </div> 
                             <div className=" mx-8 my-2">
-                                <label className=" mr-6">Component 1</label>
+                                <label className=" mr-6">Content</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProConM" /> <br />
                             </div>
                                 
                             <div className=" mx-8 my-2">
-                                <label className=" mr-[21px]">Component 2</label>
+                                <label className=" mr-[21px]">Uniqueness</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProPrM" /> <br />
                             </div>
                                 
                             <div className="mx-8 my-2">
-                                <label className="mr-[20px] ">Component 3</label>
+                                <label className="mr-[20px] ">Structure</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProTmM" /> <br />
                             </div>
 
@@ -104,9 +104,9 @@ function page() {
                         <div className=" bg-blue-50 shadow-lg rounded-lg text-blue-600 p-5 m-5 mt-16 ">
                           <h3 className="font-semibold text-center">Marking scheme</h3>
                              <ol>
-                                <li>Component 1  : 5 </li>
-                                <li>Component 2 : 3</li>
-                                <li>Component 3 : 2</li>
+                                <li>Content  : 5 </li>
+                                <li>Uniqueness : 3</li>
+                                <li>Structure : 2</li>
                             </ol>
                         </div>   
          
@@ -125,17 +125,17 @@ function page() {
                     </center>
                 </div> 
                             <div className=" mx-8 my-2">
-                                <label className=" mr-6">Component 1</label>
+                                <label className=" mr-6">Content</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProConM" /> <br />
                             </div>
                                 
                             <div className=" mx-8 my-2">
-                                <label className=" mr-[21px]">Component 2</label>
+                                <label className=" mr-[21px]">Uniqueness</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProPrM" /> <br />
                             </div>
                                 
                             <div className="mx-8 my-2">
-                                <label className="mr-[20px] ">Component 3</label>
+                                <label className="mr-[20px] ">Structure</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProTmM" /> <br />
                             </div>
 
@@ -164,17 +164,17 @@ function page() {
                     </center>
                 </div> 
                             <div className=" mx-8 my-2">
-                                <label className=" mr-6">Component 1</label>
+                                <label className=" mr-6">Content</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProConM" /> <br />
                             </div>
                                 
                             <div className=" mx-8 my-2">
-                                <label className=" mr-[21px]">Component 2</label>
+                                <label className=" mr-[21px]">Uniqueness</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProPrM" /> <br />
                             </div>
                                 
                             <div className="mx-8 my-2">
-                                <label className="mr-[20px] ">Component 3</label>
+                                <label className="mr-[20px] ">Structure</label>
                                 <input className=" w-[60px]" type="number" id="sid1ProTmM" /> <br />
                             </div>
 
