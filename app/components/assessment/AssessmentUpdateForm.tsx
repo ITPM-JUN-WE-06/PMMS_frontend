@@ -1,88 +1,88 @@
 
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 
-// interface AssessmentUpdateFormProps {
-//   id: string | null;
-//   assessmentName: string;
-//   assessmentType: string;
-//   assessmentDescription: string;
-// }
 const AssessmentUpdateForm: React.FC<AssessmentUpdateFormProps> = ({ id }) => {
+  const [newmoduleName, setNewModuleName] = useState("");
+  const [newassessmentName, setNewAssessmentName] = useState("");
+  const [newassessmentType, setNewAssessmentType] = useState("");
+  const [newassessmentDescription, setNewAssessmentDescription] = useState("");
 
-  console.log(id);
-// const AssessmentUpdateForm=() => {
-// const AssessmentUpdateForm: React.FC<AssessmentUpdateFormProps> = ({ id, assessmentName, assessmentType, assessmentDescription }) => {
-// const[newassessmentName, setnewassessmentName]=useState(assessmentName);
-  // const[newassessmentType, setnewassessmentType]=useState(assessmentType);
-  // const[newassessmentDescription, setnewassessmentDescription]=useState(assessmentDescription);
+  useEffect(() => {
+    // Fetch assessment data when the component mounts
+    getAssessmentbyId(id);
+  }, [id]);
 
-  
-const fetchData = async () => {
-  try {
-      const res = await fetch(`http://localhost:3000/api/assessment/${id}`);
+  const getAssessmentbyId = async (id: string) => {
+    try {
+      const res = await fetch(`http://localhost:3000/api/assessments/${id}`);
       if (!res.ok) {
-          throw new Error("Failed to fetch assessment");
+        throw new Error("Failed to fetch assessment");
       }
-      console.log(res);
       const data = await res.json();
-      // Use the data here
-  } catch (error) {
+      
+      
+    } catch (error) {
       console.error(error);
-  }
-};
-  // const handleSubmit = async (e:any) => {
-  //      e.preventDefault();
+    }
+  };
 
-  //   try {
-  //     const res = await fetch(`http://localhost:3000/api/assessment/${id}`, {
-  //       method: "PUT",
-  //       headers: {
-  //         "Content-type": "application/json",
-  //       },
-  //       body: JSON.stringify({ assessmentName,assessmentType,assessmentDescription  }),
-  //     });
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`http://localhost:3000/api/assessments/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          newmoduleName,
+          newassessmentName,
+          newassessmentType,
+          newassessmentDescription,
+        }),
+      });
 
-  //     if (!res.ok) {
-  //       throw new Error("Failed to update assessment");
-  //     }
+      if (!res.ok) {
+        throw new Error("Failed to update assessment");
+      }
 
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  //};
+      // Handle success (e.g., show a success message)
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <form  className="bg-white p-10 rounded-lg">
+    <form onSubmit={handleSubmit} className="bg-white p-10 rounded-lg">
       <h2 className="text-2xl text-primary font-bold mb-5">Update Assessment</h2>
       <div className="flex flex-col gap-5">
         <input
           type="text"
           placeholder="Module Name"
-          //value={moduleName}
-          //onChange={(e) => setModuleName(e.target.value)}
-          className="border p-2 rounded-lg"
+          value={newmoduleName}
+          onChange={(e) => setNewModuleName(e.target.value)}
+          className="border p-2 rounded-lg text-primary"
         />
         <input
           type="text"
           placeholder="Assessment Name"
-          //value={assessmentName}
-          //onChange={(e) => setAssessmentName(e.target.value)}
-          className="border p-2 rounded-lg"
+          value={newassessmentName}
+          onChange={(e) => setNewAssessmentName(e.target.value)}
+          className="border p-2 rounded-lg text-primary"
         />
         <input
           type="text"
           placeholder="Assessment Type"
-          //value={assessmentType}
-          //onChange={(e) => setAssessmentType(e.target.value)}
-          className="border p-2 rounded-lg"
+          value={newassessmentType}
+          onChange={(e) => setNewAssessmentType(e.target.value)}
+          className="border p-2 rounded-lg text-primary"
         />
         <textarea
           placeholder="Assessment Description"
-          //value={assessmentDescription}
-          //onChange={(e) => setAssessmentDescription(e.target.value)}
-          className="border p-2 rounded-lg"
+          value={newassessmentDescription}
+          onChange={(e) => setNewAssessmentDescription(e.target.value)}
+          className="border p-2 rounded-lg text-primary"
         />
         <button type="submit" className="bg-primary text-white p-2 rounded-lg">
           Update Assessment
@@ -95,7 +95,5 @@ const fetchData = async () => {
 type AssessmentUpdateFormProps = {
   id: string;
 };
-
-
 
 export default AssessmentUpdateForm;
